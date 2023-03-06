@@ -17,9 +17,6 @@ stopBtn.addEventListener('click', function () {
     timer = false;
 });
   
-saveBtn.addEventListener('click'), function () {
-  salvarTempo();
-}
   
 resetBtn.addEventListener('click', function () {
     timer = false;
