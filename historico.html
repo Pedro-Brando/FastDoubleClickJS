@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" 
+          content="IE=edge">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>Histórico</title>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <label for="data">Selecionar data:</label>
+    <input type="data" id="data" name="data">
+    <button class="btn" onclick="filterRecords()">Filtro</button>
+    <br /><br />
+    <label for="sort">Ordernar por:</label>
+    <select id="sort" name="sort">
+      <option value="time">Tempo</option>
+      <option value="data">Data</option>
+    </select>
+    <input type="radio" id="asc" name="order" value="asc" checked>
+    <label for="asc">Ascendente</label>
+    <input type="radio" id="desc" name="order" value="desc">
+    <label for="desc">Descendente</label>
+    <button class="btn" onclick="sortRecords()">Ordenar</button>
+    <br /><br />
+    <ul id="records"></ul>
+    <br /><br />
+    <button class="btn" onclick="window.location.href='index.html'">Voltar</button>
+  </body>
+</html>
