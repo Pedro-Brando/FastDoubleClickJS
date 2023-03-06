@@ -1,80 +1,46 @@
-let startBtn = document.getElementById('start');
-let stopBtn = document.getElementById('stop');
-let resetBtn = document.getElementById('reset');
-let saveBtn = document.getElementById('save');
-  
-let hora = 00;
-let minuto = 00;
-let segundo = 00;
-let cont = 00;
-  
-startBtn.addEventListener('click', function () {
-    timer = true;
-    ligarCronometro();
-});
-  
-stopBtn.addEventListener('click', function () {
-    timer = false;
-});
-  
-  
-resetBtn.addEventListener('click', function () {
-    timer = false;
-    hora = 0;
-    minuto = 0;
-    segundo = 0;
-    cont = 0;
-    document.getElementById('hr').innerHTML = "00";
-    document.getElementById('min').innerHTML = "00";
-    document.getElementById('seg').innerHTML = "00";
-    document.getElementById('cont').innerHTML = "00";
-});
-  
-function ligarCronometro() {
-    if (timer) {
-        cont++;
-  
-        if (cont == 100) {
-            segundo++;
-            cont = 0;
-        }
-  
-        if (segundo == 60) {
-            minuto++;
-            segundo = 0;
-        }
-  
-        if (minuto == 60) {
-            hora++;
-            minuto = 0;
-            segundo = 0;
-        }
-  
-        let hrString = hora;
-        let minString = minuto;
-        let segString = segundo;
-        let contString = cont;
-  
-        if (hora < 10) {
-            hrString = "0" + hrString;
-        }
-  
-        if (minuto < 10) {
-            minString = "0" + minString;
-        }
-  
-        if (segundo < 10) {
-            segString = "0" + segString;
-        }
-  
-        if (cont < 10) {
-            contString = "0" + contString;
-        }
-  
-        document.getElementById('hr').innerHTML = hrString;
-        document.getElementById('min').innerHTML = minString;
-        document.getElementById('seg').innerHTML = segString;
-        document.getElementById('cont').innerHTML = contString;
-        setTimeout(ligarCronometro, 10);
-    }
+var click = document.getElementById('click');
+var textarea = document.getElementById('textarea');
+var clicks = document.getElementById('cont');
+var dcCont = document.getElementById('dcCont');
+var reset = document.getElementById('reset');
+
+reset.onclick = function() {
+  clicks.value = 0;
+  dcCont.value = 0;
+  textarea.value = '';
+  click.style.background = 'orange';
 }
+
+var prevClickMicrotime = microtime(true);
+function microtime(get_as_float) {
+  // original por: Paulo Freitas http://phpjs.org/functions/microtime/
+
+  var now = new Date()
+    .getTime() / 1000;
+  var s = parseInt(now, 10);
+
+  return (get_as_float) ? now : (Math.round((now - s) * 1000) / 1000) + ' ' + s;
+}
+
+var prevClickMicrotime = microtime(true);
+
+function clickEvent() {
+	clickTime = microtime(true);
+  diff = clickTime - prevClickMicrotime;
+  if(diff <= 0.08) {
+    click.style.background = 'red';
+    dcCont.value++;
+  }
+  textarea.value = diff + "\n" + textarea.value;
+  prevClickMicrotime = clickTime;
+  clicks.value++;  
+}
+
+function mouseClick() {
+    var e = window.event;
+  	console.log(e);
+  	clickEvent();
+    return false;
+}
+
+//mouseClick();

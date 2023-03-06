@@ -7,43 +7,23 @@
           content="IE=edge">
     <meta name="viewport" 
           content="width=device-width, initial-scale=1.0">
-    <title>Cronometro</title>
+    <title>Double Clicker</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
   
 <body>
     <div class="container">
-        <h1>Cronômetro Teste 
-          <br>
-          Directy</h1>
-        <div id="time">
-            <span class="digit" id="hr">
-              00</span>
-            <span class="txt">Hr</span>
-            <span class="digit" id="min">
-              00</span>
-            <span class="txt">Min</span>
-            <span class="digit" id="seg">
-              00</span>
-            <span class="txt">seg</span>
-            <span class="digit" id="cont">
-              00</span>
-        </div>
-        <div id="buttons">
-            <button class="btn" id="start">
-              Start</button>
-            <button class="btn" id="stop">
-              Stop</button>
-            <button class="btn" id="reset">
-              Reset</button>
-            <button class="btn" id="save">
-                Save</button>
-            <button class="btn" id="historico" onclick="window.location.href='historico.html'">
-              Histórico</button>
-        </div>
+      <h1> DoubleClicks Directy</h1> <br>
+          <body onmousedown="mouseClick();" oncontextmenu="return false;">
+            <div id="click" class="click"></div>
+            Clicks:  <input id="cont" type="text" value="0" size="4"> <button id="reset">reset</button><br />
+            Fast double click cont:  <input id="dcCont" type="text" value="0" size="4"> <br />
+            <textarea id="textarea"></textarea>            
+          </body>
+          <button class="btn" onclick="window.location.href='historico.html'">Histórico</button>
     </div>
 </body>
-
 </html>
 
+<!DOCTYPE html>
 <script src="js/script.js"></script>
