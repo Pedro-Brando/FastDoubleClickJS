@@ -10,13 +10,13 @@ let cont = 00;
   
 startBtn.addEventListener('click', function () {
     timer = true;
-    stopWatch();
+    ligarCronometro();
 });
   
 stopBtn.addEventListener('click', function () {
     timer = false;
 });
-
+  
 saveBtn.addEventListener('click'), function () {
   salvarTempo();
 }
@@ -33,7 +33,7 @@ resetBtn.addEventListener('click', function () {
     document.getElementById('cont').innerHTML = "00";
 });
   
-function stopWatch() {
+function ligarCronometro() {
     if (timer) {
         cont++;
   
@@ -78,6 +78,6 @@ function stopWatch() {
         document.getElementById('min').innerHTML = minString;
         document.getElementById('seg').innerHTML = segString;
         document.getElementById('cont').innerHTML = contString;
-        setTimeout(stopWatch, 10);
+        setTimeout(ligarCronometro, 10);
     }
 }

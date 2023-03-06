@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
+  
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" 
@@ -14,7 +16,7 @@
   <body>
     <label for="data">Selecionar data:</label>
     <input type="data" id="data" name="data">
-    <button class="btn" onclick="filterRecords()">Filtro</button>
+    <button class="btn" onclick="filtrarHistorico()">Filtro</button>
     <br /><br />
     <label for="sort">Ordernar por:</label>
     <select id="sort" name="sort">
@@ -25,7 +27,7 @@
     <label for="asc">Ascendente</label>
     <input type="radio" id="desc" name="order" value="desc">
     <label for="desc">Descendente</label>
-    <button class="btn" onclick="sortRecords()">Ordenar</button>
+    <button class="btn" onclick="ordenarHistorico()">Ordenar</button>
     <br /><br />
     <ul id="records"></ul>
     <br /><br />
